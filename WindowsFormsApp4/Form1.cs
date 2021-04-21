@@ -19,20 +19,18 @@ namespace WindowsFormsApp4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var graphics = pnlDraw.CreateGraphics();
-            var pen = new Pen(Color.Blue, 4);
-            graphics.DrawEllipse(pen, 50, 50, 60, 60);
-            graphics.DrawLine(new Pen(Color.Red, 10), new Point(1, 1), new Point(100, 100));
+            if(comboBox1_SelectedIndexChanged)
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            pnlDraw.Controls.Clear();
+            Graphics clear = pnlDraw.CreateGraphics();
+            clear.Clear(Color.Silver);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

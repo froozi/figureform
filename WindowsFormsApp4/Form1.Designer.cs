@@ -116,6 +116,7 @@
             // 
             // pnlDraw
             // 
+            this.pnlDraw.BackColor = System.Drawing.Color.Silver;
             this.pnlDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDraw.Location = new System.Drawing.Point(0, 114);
             this.pnlDraw.Name = "pnlDraw";
