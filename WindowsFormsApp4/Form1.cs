@@ -12,6 +12,7 @@ namespace WindowsFormsApp4
 {
     public partial class Form1 : Form
     {
+        string[] ssplit;
         public Form1()
         {
             InitializeComponent();
@@ -19,26 +20,36 @@ namespace WindowsFormsApp4
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { ssplit = textBox1.Text.Split(' '); } 
+            catch { }
             if (comboBox1.SelectedItem.ToString() == "Треугольник")
             {
-                var graphics = pnlDraw.CreateGraphics();
-                var pen = new Pen(Color.Red, 5);
-                graphics.Draw
+                Pen pen = new Pen(Color.Black, trackBar1.Value);
+                Graphics g = pnlDraw.CreateGraphics();
+                PointF point1 = new PointF(Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]));
+                PointF point2 = new PointF(Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
+                PointF point3 = new PointF(Convert.ToInt32(ssplit[4]), Convert.ToInt32(ssplit[5]));
+                PointF[] polygon = {point1, point2, point3};
+                g.DrawPolygon(pen, polygon);
             }
             else if (comboBox1.SelectedItem.ToString() == "Круг")
             {
                 var graphics = pnlDraw.CreateGraphics();
-                var pen = new Pen(Color.Blue, 4);
-                graphics.DrawEllipse(pen, 50, 50, 60, 60);
-                graphics.DrawLine(new Pen(Color.Red, 10), new Point(1, 1), new Point(100, 100));
+                var pen = new Pen(Color.Blue, trackBar1.Value);
+                graphics.DrawEllipse(pen, Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
             }
             else if (comboBox1.SelectedItem.ToString() == "Прямоугольник")
             {
-            
+                var graphics = pnlDraw.CreateGraphics();
+                var pen = new Pen(Color.Blue, trackBar1.Value);
+                graphics.DrawRectangle(pen, Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
+                
             }
             else if (comboBox1.SelectedItem.ToString() == "Отрезок")
             {
-
+                var graphics = pnlDraw.CreateGraphics();
+                var pen = new Pen(Color.Blue, trackBar1.Value);
+                graphics.DrawLine(new Pen(Color.Red, 10), Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
             }
 
 
@@ -48,16 +59,6 @@ namespace WindowsFormsApp4
         {
             Graphics clear = pnlDraw.CreateGraphics();
             clear.Clear(Color.Silver);
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)

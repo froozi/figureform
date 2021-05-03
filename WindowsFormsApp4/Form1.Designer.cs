@@ -36,7 +36,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlDraw = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.pnlmenu.SuspendLayout();
+            this.pnlDraw.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlmenu
@@ -78,7 +81,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBox1
             // 
@@ -92,7 +94,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -117,11 +118,19 @@
             // pnlDraw
             // 
             this.pnlDraw.BackColor = System.Drawing.Color.Silver;
+            this.pnlDraw.Controls.Add(this.trackBar1);
             this.pnlDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDraw.Location = new System.Drawing.Point(0, 114);
             this.pnlDraw.Name = "pnlDraw";
             this.pnlDraw.Size = new System.Drawing.Size(800, 336);
             this.pnlDraw.TabIndex = 1;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(414, 206);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -136,6 +145,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlmenu.ResumeLayout(false);
             this.pnlmenu.PerformLayout();
+            this.pnlDraw.ResumeLayout(false);
+            this.pnlDraw.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,6 +162,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlDraw;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
