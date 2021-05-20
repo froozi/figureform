@@ -24,7 +24,7 @@ namespace WindowsFormsApp4
             catch { }
             if (comboBox1.SelectedItem.ToString() == "Треугольник")
             {
-                Pen pen = new Pen(Color.Black, trackBar1.Value);
+                Pen pen = new Pen(button3.BackColor, trackBar1.Value);
                 Graphics g = pnlDraw.CreateGraphics();
                 PointF point1 = new PointF(Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]));
                 PointF point2 = new PointF(Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
@@ -35,20 +35,20 @@ namespace WindowsFormsApp4
             else if (comboBox1.SelectedItem.ToString() == "Круг")
             {
                 var graphics = pnlDraw.CreateGraphics();
-                var pen = new Pen(Color.Blue, trackBar1.Value);
+                var pen = new Pen(button3.BackColor, trackBar1.Value);
                 graphics.DrawEllipse(pen, Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
             }
             else if (comboBox1.SelectedItem.ToString() == "Прямоугольник")
             {
                 var graphics = pnlDraw.CreateGraphics();
-                var pen = new Pen(Color.Blue, trackBar1.Value);
+                var pen = new Pen(button3.BackColor, trackBar1.Value);
                 graphics.DrawRectangle(pen, Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
                 
             }
             else if (comboBox1.SelectedItem.ToString() == "Отрезок")
             {
                 var graphics = pnlDraw.CreateGraphics();
-                var pen = new Pen(Color.Blue, trackBar1.Value);
+                var pen = new Pen(button3.BackColor, trackBar1.Value);
                 graphics.DrawLine(new Pen(Color.Red, 10), Convert.ToInt32(ssplit[0]), Convert.ToInt32(ssplit[1]), Convert.ToInt32(ssplit[2]), Convert.ToInt32(ssplit[3]));
             }
 
@@ -64,6 +64,12 @@ namespace WindowsFormsApp4
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+                button3.BackColor = colorDialog1.Color;
         }
     }
 }

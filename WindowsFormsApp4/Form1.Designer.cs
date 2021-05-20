@@ -29,24 +29,29 @@
         private void InitializeComponent()
         {
             this.pnlmenu = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_coordinate = new System.Windows.Forms.Label();
+            this.lbl_selection = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlDraw = new System.Windows.Forms.Panel();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.lbl_thickness = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button3 = new System.Windows.Forms.Button();
             this.pnlmenu.SuspendLayout();
-            this.pnlDraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlmenu
             // 
             this.pnlmenu.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlmenu.Controls.Add(this.label2);
-            this.pnlmenu.Controls.Add(this.label1);
+            this.pnlmenu.Controls.Add(this.button3);
+            this.pnlmenu.Controls.Add(this.lbl_thickness);
+            this.pnlmenu.Controls.Add(this.trackBar1);
+            this.pnlmenu.Controls.Add(this.lbl_coordinate);
+            this.pnlmenu.Controls.Add(this.lbl_selection);
             this.pnlmenu.Controls.Add(this.textBox1);
             this.pnlmenu.Controls.Add(this.comboBox1);
             this.pnlmenu.Controls.Add(this.button2);
@@ -57,23 +62,23 @@
             this.pnlmenu.Size = new System.Drawing.Size(800, 114);
             this.pnlmenu.TabIndex = 0;
             // 
-            // label2
+            // lbl_coordinate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(308, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "выбор координат";
+            this.lbl_coordinate.AutoSize = true;
+            this.lbl_coordinate.Location = new System.Drawing.Point(308, 9);
+            this.lbl_coordinate.Name = "lbl_coordinate";
+            this.lbl_coordinate.Size = new System.Drawing.Size(95, 13);
+            this.lbl_coordinate.TabIndex = 5;
+            this.lbl_coordinate.Text = "выбор координат";
             // 
-            // label1
+            // lbl_selection
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "выбор фигуры";
+            this.lbl_selection.AutoSize = true;
+            this.lbl_selection.Location = new System.Drawing.Point(153, 9);
+            this.lbl_selection.Name = "lbl_selection";
+            this.lbl_selection.Size = new System.Drawing.Size(80, 13);
+            this.lbl_selection.TabIndex = 4;
+            this.lbl_selection.Text = "выбор фигуры";
             // 
             // textBox1
             // 
@@ -118,7 +123,6 @@
             // pnlDraw
             // 
             this.pnlDraw.BackColor = System.Drawing.Color.Silver;
-            this.pnlDraw.Controls.Add(this.trackBar1);
             this.pnlDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDraw.Location = new System.Drawing.Point(0, 114);
             this.pnlDraw.Name = "pnlDraw";
@@ -127,10 +131,29 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(414, 206);
+            this.trackBar1.Location = new System.Drawing.Point(476, 28);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
             this.trackBar1.TabIndex = 0;
+            // 
+            // lbl_thickness
+            // 
+            this.lbl_thickness.AutoSize = true;
+            this.lbl_thickness.Location = new System.Drawing.Point(476, 9);
+            this.lbl_thickness.Name = "lbl_thickness";
+            this.lbl_thickness.Size = new System.Drawing.Size(114, 13);
+            this.lbl_thickness.TabIndex = 6;
+            this.lbl_thickness.Text = "Изменение толщины";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(648, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Выбор цвета";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -145,8 +168,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlmenu.ResumeLayout(false);
             this.pnlmenu.PerformLayout();
-            this.pnlDraw.ResumeLayout(false);
-            this.pnlDraw.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
@@ -155,14 +176,17 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlmenu;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_selection;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_coordinate;
         private System.Windows.Forms.Panel pnlDraw;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lbl_thickness;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
